@@ -69,7 +69,7 @@ const CoveredSection = () => {
               return (
                 <Link
                   key={card.title}
-                  to={card.to}
+                  href={card.to}
                   className={`bg-gradient-to-br ${card.color} rounded-2xl shadow-lg border border-purple-100 p-8 flex flex-col items-center text-center hover:shadow-2xl hover:scale-105 transition-all duration-300`}
                 >
                   <div className="mb-4">{card.icon}</div>

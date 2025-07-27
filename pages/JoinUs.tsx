@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Users, Heart, Lightbulb, Star, ExternalLink, Mail, ArrowRight, Gift, Mic, UserPlus, Building2, Handshake, UserCheck, BookOpen } from 'lucide-react';
 
-const CTAButton = ({ onClick, children, variant = 'primary', size = 'md', className = '', type = 'button' }) => {
+const CTAButton = ({ onClick, children, variant = 'primary', size = 'md', className = '', type = 'button' }: { onClick?: () => void, children: React.ReactNode, variant?: 'primary' | 'secondary' | 'outline', size?: 'sm' | 'md' | 'lg', className?: string, type?: 'button' | 'submit' | 'reset' }) => {
   const variants = {
     primary: 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl',
     secondary: 'bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg',
@@ -26,8 +26,8 @@ const CTAButton = ({ onClick, children, variant = 'primary', size = 'md', classN
 const JoinUs = () => {
   const [form, setForm] = useState({ name: '', email: '', interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = e => { e.preventDefault(); setSubmitted(true); };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
 
   const joinOptions = [
     {
@@ -74,7 +74,7 @@ const JoinUs = () => {
           <p className="text-xl text-purple-700 font-semibold mb-4 max-w-2xl mx-auto">
             And movements don’t grow alone. They grow with believers. With mentors. With markets. With people like you.
           </p>
-          <CTAButton size="lg" onClick={() => document.getElementById('join-options').scrollIntoView({ behavior: 'smooth' })}>
+          <CTAButton size="lg" onClick={() => document.getElementById('join-options')?.scrollIntoView({ behavior: 'smooth' })}>
             Choose How You’ll Join <ArrowRight className="ml-2 h-5 w-5" />
           </CTAButton>
         </div>

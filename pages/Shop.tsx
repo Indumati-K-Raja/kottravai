@@ -32,7 +32,7 @@ const Card = ({ icon, image, title, description, accentColor = 'purple', cta, ch
     {children}
     {cta && (
       <Link
-        to={cta.href}
+        href={cta.href}
         onClick={cta.onClick}
         className={`mt-auto inline-block w-full bg-${accentColor}-600 text-white px-3 py-2 rounded-lg hover:bg-${accentColor}-700 transition-colors font-medium text-sm text-center`}
       >
