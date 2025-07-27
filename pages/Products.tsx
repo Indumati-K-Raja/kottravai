@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Palette, Home, Utensils, Shirt, Gem } from 'lucide-react';
+import { Leaf, Palette, Home, Utensils, Shirt, Gem, Smartphone } from 'lucide-react';
 
 const Products = () => {
   const categories = [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Smartphone, Download, HeartHandshake } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const CTA = () => {
   return (
@@ -25,15 +25,15 @@ const CTA = () => {
               <div className="flex-grow border-t border-purple-100"></div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full">
-              <Link to="/shop" className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-300">
+              <Link href="/shop" className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-300">
                 <ArrowRight className="mr-3 h-6 w-6" />
                 Shop Now
               </Link>
-              <Link to="/partner" className="flex-1 bg-gradient-to-r from-white to-pink-50 text-purple-700 px-8 py-4 rounded-xl shadow-lg hover:bg-purple-50 hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-300">
+              <Link href="/partner" className="flex-1 bg-gradient-to-r from-white to-pink-50 text-purple-700 px-8 py-4 rounded-xl shadow-lg hover:bg-purple-50 hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-300">
                 <Download className="mr-3 h-6 w-6" />
                 Partner with Us
               </Link>
-              <Link to="/mentorship" className="flex-1 bg-gradient-to-r from-pink-100 to-purple-50 text-pink-700 px-8 py-4 rounded-xl shadow-lg hover:bg-pink-200 hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              <Link href="/mentorship" className="flex-1 bg-gradient-to-r from-pink-100 to-purple-50 text-pink-700 px-8 py-4 rounded-xl shadow-lg hover:bg-pink-200 hover:scale-105 hover:shadow-2xl active:scale-100 transition-all flex items-center justify-center font-bold text-lg border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                 <HeartHandshake className="mr-3 h-6 w-6" />
                 Donate a Skill
               </Link>

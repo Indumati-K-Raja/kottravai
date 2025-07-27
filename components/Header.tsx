@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Menu, X, ShoppingBag, Heart, ChevronDown } from 'lucide-react';
 
 const joinUsLinks = [
@@ -23,13 +24,13 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const router = useRouter();
   const dropdownRefs = {
     join: useRef<HTMLDivElement>(null),
     media: useRef<HTMLDivElement>(null),
   };
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => router.pathname === path;
 
   // Close mobile menu on navigation
   const handleNavClick = () => {
@@ -67,16 +68,16 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex-shrink-0 flex items-center">
               <img src="/assets/logo.png" alt="Kottravai Logo" className="h-60 w-60 mr-2" style={{objectFit: 'contain'}} />
             </Link>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex space-x-8">
-            <Link to="/" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Home</Link>
-            <Link to="/shop" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/shop') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Shop</Link>
-            <Link to="/story" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/story') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Our Story</Link>
+            <Link href="/" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Home</Link>
+            <Link href="/shop" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/shop') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Shop</Link>
+            <Link href="/story" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/story') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Our Story</Link>
             {/* Join Us Dropdown */}
             <div className="relative" ref={dropdownRefs.join}>
               <button
@@ -95,7 +96,7 @@ const Header = () => {
                   {joinUsLinks.map(link => (
                     <Link
                       key={link.to}
-                      to={link.to}
+                      href={link.to}
                       className="block px-4 py-3 text-gray-800 hover:bg-purple-50 first:rounded-t-xl last:rounded-b-xl"
                       onClick={() => setOpenDropdown(null)}
                     >
@@ -123,7 +124,7 @@ const Header = () => {
                   {mediaLinks.map(link => (
                     <Link
                       key={link.to}
-                      to={link.to}
+                      href={link.to}
                       className="block px-4 py-3 text-gray-800 hover:bg-purple-50 first:rounded-t-xl last:rounded-b-xl"
                       onClick={() => setOpenDropdown(null)}
                     >
@@ -133,7 +134,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/contact" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/contact') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Contact</Link>
+            <Link href="/contact" className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('/contact') ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-900 hover:text-purple-600'}`}>Contact</Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -141,7 +142,7 @@ const Header = () => {
             <button className="text-gray-900 hover:text-purple-600 p-2 transition-colors">
               <ShoppingBag className="h-6 w-6" />
             </button>
-            <Link to="/shop" className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors font-semibold">Shop Now</Link>
+            <Link href="/shop" className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors font-semibold">Shop Now</Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -162,7 +163,7 @@ const Header = () => {
         <div className="lg:hidden fixed inset-0 bg-black bg-opacity-30 z-50" onClick={handleNavClick}>
           <div className="absolute top-0 left-0 w-4/5 max-w-xs h-full bg-white shadow-xl p-6 flex flex-col gap-2" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
-              <Link to="/" className="flex items-center" onClick={handleNavClick}>
+              <Link href="/" className="flex items-center" onClick={handleNavClick}>
                 <Heart className="h-7 w-7 text-purple-600 mr-2" />
                 <img src="/assets/logo.png" alt="Kottravai Logo" className="h-10 w-10 mr-2" style={{objectFit: 'contain'}} />
                 </Link>
@@ -170,9 +171,9 @@ const Header = () => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <Link to="/" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Home</Link>
-            <Link to="/shop" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Shop</Link>
-            <Link to="/story" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Our Story</Link>
+            <Link href="/" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Home</Link>
+            <Link href="/shop" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Shop</Link>
+            <Link href="/story" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Our Story</Link>
             {/* Mobile Join Us Dropdown */}
             <div>
               <button
@@ -189,7 +190,7 @@ const Header = () => {
                   {joinUsLinks.map(link => (
                     <Link
                       key={link.to}
-                      to={link.to}
+                      href={link.to}
                       className="block px-4 py-2 text-base text-gray-800 hover:bg-purple-50"
                       onClick={handleNavClick}
                     >
@@ -215,7 +216,7 @@ const Header = () => {
                   {mediaLinks.map(link => (
                     <Link
                       key={link.to}
-                      to={link.to}
+                      href={link.to}
                       className="block px-4 py-2 text-base text-gray-800 hover:bg-purple-50"
                       onClick={handleNavClick}
                     >
@@ -225,9 +226,9 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/contact" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Contact</Link>
+            <Link href="/contact" className="block px-3 py-2 text-base font-medium rounded hover:bg-purple-50 transition-colors" onClick={handleNavClick}>Contact</Link>
             <div className="mt-6">
-              <Link to="/shop" className="w-full block bg-purple-600 text-white px-4 py-2 rounded-md text-center font-semibold hover:bg-purple-700 transition-colors" onClick={handleNavClick}>Shop Now</Link>
+              <Link href="/shop" className="w-full block bg-purple-600 text-white px-4 py-2 rounded-md text-center font-semibold hover:bg-purple-700 transition-colors" onClick={handleNavClick}>Shop Now</Link>
             </div>
           </div>
         </div>

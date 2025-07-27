@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Heart, Mail, ArrowRight } from 'lucide-react';
 
 const Donate = () => {
@@ -81,12 +82,12 @@ const Donate = () => {
             Your support is more than a donation — it’s a lifeline, a skill, a future. For questions about giving, contact us at <a href="mailto:support@kottravai.in" className="text-purple-600 underline">support@kottravai.in</a>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/" className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-white text-purple-700 border-2 border-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg transition-all duration-300">
+            <Link href="/" className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-white text-purple-700 border-2 border-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg transition-all duration-300">
               Return Home <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a href="/shop" className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl transition-all duration-300">
+            </Link>
+            <Link href="/shop" className="inline-flex items-center px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl transition-all duration-300">
               Explore Her Work <Mail className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

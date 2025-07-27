@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Star } from 'lucide-react';
 
 const stats = [
@@ -33,14 +33,14 @@ const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mt-2 mb-8">
               <Link
-                to="/shop"
+                href="/shop"
                 className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-4 rounded-xl shadow-lg hover:from-pink-600 hover:to-purple-600 transition-all flex items-center justify-center font-bold text-lg"
               >
                 Shop Her Creations
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Link>
               <Link
-                to="/story"
+                href="/story"
                 className="border-2 border-purple-600 text-purple-700 px-10 py-4 rounded-xl hover:bg-purple-50 transition-all font-bold text-lg text-center"
               >
                 Meet the Makers

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Users, Award, Globe, Heart, Lightbulb, MapPin, Layers3, Zap, BookOpen, ArrowRight, Star, Quote, Play, ExternalLink, X } from 'lucide-react';
 
 const OurStory = () => {
@@ -17,6 +18,17 @@ const OurStory = () => {
       md: 'px-6 py-3 text-base',
       lg: 'px-8 py-4 text-lg'
     };
+
+    if (to && !onClick) {
+      return (
+        <Link
+          href={to}
+          className={`inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${variants[variant]} ${sizes[size]} ${className}`}
+        >
+          {children}
+        </Link>
+      );
+    }
 
     return (
       <button

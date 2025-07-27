@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Heart, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex-shrink-0 flex items-center">
               <img src="/assets/logo.png" alt="Kottravai Logo"  style={{objectFit: 'contain'}} />
             </Link>
             </div>
@@ -23,32 +23,32 @@ Handmade by Women. Made for the World.
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/shop" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/shop" className="text-gray-400 hover:text-white transition-colors">
                   Shop
                 </Link>
               </li>
               <li>
-                <Link to="/story" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/story" className="text-gray-400 hover:text-white transition-colors">
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link to="/mentorship" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/mentorship" className="text-gray-400 hover:text-white transition-colors">
                   Mentorship
                 </Link>
               </li>
               <li>
-                <Link to="/creators" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/creators" className="text-gray-400 hover:text-white transition-colors">
                   Creators
                 </Link>
               </li>
               <li>
-                <Link to="/hubs" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/hubs" className="text-gray-400 hover:text-white transition-colors">
                   Hubs
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>

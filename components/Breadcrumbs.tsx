@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ChevronRight, Home } from 'lucide-react';
 
 interface BreadcrumbItem {
@@ -8,8 +9,8 @@ interface BreadcrumbItem {
 }
 
 const Breadcrumbs = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const router = useRouter();
+  const pathnames = router.pathname.split('/').filter((x) => x);
 
   const getBreadcrumbLabel = (path: string, index: number) => {
     const pathMap: { [key: string]: string } = {
@@ -60,7 +61,7 @@ const Breadcrumbs = () => {
                 </span>
               ) : (
                 <Link
-                  to={breadcrumb.path}
+                  href={breadcrumb.path}
                   className="text-gray-600 hover:text-purple-600 text-sm transition-colors flex items-center"
                 >
                   {index === 0 && <Home className="h-4 w-4 mr-1" />}

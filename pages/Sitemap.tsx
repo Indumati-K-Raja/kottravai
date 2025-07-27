@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const links = [
   { label: 'Home', to: '/' },
@@ -45,7 +45,7 @@ const Sitemap = () => (
     <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
         {links.map((link, i) => (
-          <Link key={i} to={link.to} className="block bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl text-lg font-semibold text-purple-700 hover:text-pink-600 text-center transition-all duration-300">
+          <Link key={i} href={link.to} className="block bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl text-lg font-semibold text-purple-700 hover:text-pink-600 text-center transition-all duration-300">
             {link.label}
           </Link>
         ))}

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Star, Heart, ShoppingCart, ArrowRight, BookOpen, Leaf, Zap, Layers3 } from 'lucide-react';
 
 // Local Card component for unified UI
@@ -78,9 +79,9 @@ const categories = [
 
 const Shop = () => {
   // ... filter/search/product logic as before ...
-  const [searchParams] = useSearchParams();
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedHub, setSelectedHub] = useState(searchParams.get('hub') || 'all');
+  const [selectedHub, setSelectedHub] = useState((router.query.hub as string) || 'all');
   const [searchTerm, setSearchTerm] = useState('');
   const categoriesRef = useRef<HTMLDivElement>(null);
 
@@ -102,7 +103,7 @@ const Shop = () => {
               <ArrowRight className="mr-2 h-5 w-5" />
               Start Exploring
             </a>
-            <Link to="/story" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold flex items-center justify-center text-lg border border-purple-100">
+                          <Link href="/story" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold flex items-center justify-center text-lg border border-purple-100">
               <BookOpen className="mr-2 h-5 w-5" />
               Read Her Stories
             </Link>
@@ -136,7 +137,7 @@ const Shop = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">More than products. These are possibilities.</h2>
           <blockquote className="text-xl italic text-purple-700 mb-6">“Every time someone buys what I make, I feel seen. Not as a poor woman. But as a creator.”<br /><span className="block text-base text-gray-600 mt-2">– Parvathi, 42, Puliyangudi</span></blockquote>
-          <Link to="/story" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Shop Stories, Not Just Things</Link>
+                        <Link href="/story" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Shop Stories, Not Just Things</Link>
         </div>
       </section>
 
@@ -149,10 +150,6 @@ const Shop = () => {
               title="Housewarming Hamper"
               description="Coconut shell sets + banana bark lamp"
               accentColor="purple"
-              icon={undefined}
-              image={undefined}
-              cta={undefined}
-              children={undefined}
             />
             <Card
               title="Wedding Return Gift Sets"
@@ -170,7 +167,7 @@ const Shop = () => {
               accentColor="green"
             />
           </div>
-          <Link to="/shop?category=bundles" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Explore Gift Ideas</Link>
+                        <Link href="/shop?category=bundles" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Explore Gift Ideas</Link>
         </div>
       </section>
 
@@ -183,7 +180,7 @@ const Shop = () => {
             <li>• Healthy meals for her child while she works</li>
             <li>• Maintenance of rural micro-production hubs</li>
           </ul>
-          <Link to="/impact" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold text-lg border border-purple-100">Know Where Your Money Goes</Link>
+          <Link href="/impact" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold text-lg border border-purple-100">Know Where Your Money Goes</Link>
         </div>
       </section>
 
@@ -193,9 +190,9 @@ const Shop = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Take home more than a product.<br />Carry her pride with you.</h2>
           <p className="text-xl text-gray-700 mb-8">Every item here is made with intent — to change a life, to revive a craft, to honour the earth.<br />This isn’t just shopping. This is how we shift the narrative.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/shop" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Start Shopping</Link>
-            <Link to="/about" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold text-lg border border-purple-100">Join the Movement</Link>
-            <Link to="/mentorship" className="bg-pink-100 text-pink-700 px-8 py-3 rounded-lg shadow-md hover:bg-pink-200 transition-colors font-semibold text-lg border border-pink-200">Gift a Skill</Link>
+            <Link href="/shop" className="bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">Start Shopping</Link>
+            <Link href="/about" className="bg-white text-purple-700 px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition-colors font-semibold text-lg border border-purple-100">Join the Movement</Link>
+            <Link href="/mentorship" className="bg-pink-100 text-pink-700 px-8 py-3 rounded-lg shadow-md hover:bg-pink-200 transition-colors font-semibold text-lg border border-pink-200">Gift a Skill</Link>
           </div>
         </div>
       </section>

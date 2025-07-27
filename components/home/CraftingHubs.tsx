@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const CraftingHubs = () => {
   const hubs = [
@@ -54,7 +54,7 @@ const CraftingHubs = () => {
                 <p className="text-purple-700 mb-2 leading-snug italic text-sm text-center">
                   {hub.description}
                 </p>
-                <Link to="/hubs" className="mt-2 inline-block w-full bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm text-center">
+                <Link href="/hubs" className="mt-2 inline-block w-full bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm text-center">
                   Discover More
                 </Link>
               </div>

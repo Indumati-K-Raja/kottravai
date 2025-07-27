@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, MessageCircle, Smile } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const cards = [
   // Features
@@ -92,7 +92,7 @@ const CoveredSection = () => {
           })}
         </div>
         <div className="text-center">
-          <Link to="/shop" className="inline-flex items-center bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">
+                      <Link href="/shop" className="inline-flex items-center bg-purple-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors font-semibold text-lg">
             Start Exploring
           </Link>
         </div>
